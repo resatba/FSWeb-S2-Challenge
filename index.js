@@ -222,19 +222,26 @@ console.log(manav);
 
 function emojileriDonustur(mesaj, emojiObj) {
   const mesajArr = mesaj.split(" ");
-  for (key in mesajArr) {
-    let a = false;
-    if (emojiObj in [mesajArr[key]]) {
-      a = true;
-      var emoji = mesajArr[key].toUpperCase();
-    }
-    if (a === true){
+  let emojiliMesaj = ""; 
+
+  for (let i = 0; i < mesajArr.length; i++) {
+    const kelime = mesajArr[i];
+    if (kelime.toLowerCase() in emojiObj) {
+      const a = kelime.toLowerCase();
+      emojiliMesaj += emojiObj[a] + " "; 
+    } else {
+      emojiliMesaj += kelime + " ";
     }
   }
-  console.log(mesajArr);
+
+  console.log(emojiliMesaj.trim());
+
+  return emojiliMesaj.trim();
 }
 
-// emojileriDonustur("selam :d", emojiler);
+// emojileriDonustur("selam :D", emojiler);
+
+
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa() {
   console.log("Kodlar çalışıyor");
